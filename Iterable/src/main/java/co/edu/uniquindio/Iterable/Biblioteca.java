@@ -1,4 +1,4 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.Iterable;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -21,7 +21,7 @@ public class Biblioteca implements Iterable<Libro> {
         return libros[indexLibro];
     }
 
-    public int size(){
+    public int size() {
         return indexLibro;
     }
 
