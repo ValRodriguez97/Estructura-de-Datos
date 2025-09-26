@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 public class ListaDobleSimpleEnlazada<T extends Comparable<? super T>> implements Iterable<T> {
 
-        private Nodo<T> primero;
+        private NodoDoble<T> primero;
         private int tam;
 
         public ListaDobleSimpleEnlazada() {
@@ -18,9 +18,14 @@ public class ListaDobleSimpleEnlazada<T extends Comparable<? super T>> implement
         }
 
         public void agregarPrimero(T dato){
-            Nodo<T> newNodo = new Nodo<>(dato);
-            newNodo.setProximo(primero);
-            primero = newNodo;
+            NodoDoble<T> nuevo = new NodoDoble(dato);
+            if(primero == null){
+                primero = nuevo;
+            }else{
+                nuevo.setProximo(primero);
+                primero.setAnterior(nuevo);
+                primero = nuevo;
+            }
             tam++;
         }
 
@@ -30,7 +35,7 @@ public class ListaDobleSimpleEnlazada<T extends Comparable<? super T>> implement
                 return;
             }
             StringBuilder mensaje = new StringBuilder("[");
-            Nodo<T> actual = primero;
+            NodoDoble<T> actual = primero;
             while (actual != null) {
                 mensaje.append(actual.getDato());
                 if (actual.getProximo() != null) mensaje.append(" ");
@@ -41,15 +46,16 @@ public class ListaDobleSimpleEnlazada<T extends Comparable<? super T>> implement
         }
 
         public void agregarUltimo (T dato){
-            Nodo<T> newNodo = new Nodo<>(dato);
-            if(primero == null){
-                primero = newNodo;
-            }else{
-                Nodo<T> actual = primero;
+            NodoDoble<T> nuevo = new NodoDoble<>(dato);
+            if (primero == null) {
+                primero = nuevo;
+            } else{
+                NodoDoble<T> actual = primero;
                 while(actual.getProximo() != null){
                     actual = actual.getProximo();
                 }
-                actual.setProximo(newNodo);
+                actual.setProximo(nuevo);
+                nuevo.setAnterior(actual);
             }
             tam++;
         }
@@ -63,7 +69,7 @@ public class ListaDobleSimpleEnlazada<T extends Comparable<? super T>> implement
                 newNodo.setProximo(primero);
                 primero = newNodo;
             } else {
-                Nodo<T> actual = primero;
+                NodoDoble<T> actual = primero;
                 for(int i =0; i<posicion-1;i++){
                     actual = actual.getProximo();
                 }
