@@ -6,17 +6,12 @@ public class Cola<T> {
     private Nodo<T> inicio;
     private Nodo<T> fin;
     private int tamaño;
-    private int contador;
 
     public Cola(int tamaño) {
         this.tamaño = tamaño;
-        contador = 0;
     }
 
     public void encolar(T dato){
-        if(contador == tamaño){
-            throw new IllegalStateException("La cola esta llena");
-        }
         Nodo<T> nuevo = new Nodo(dato);
         if(inicio == null){
             inicio = nuevo;
@@ -27,6 +22,21 @@ public class Cola<T> {
         }
         tamaño++;
     }
+
+    public T desencolar() {
+        if (inicio == null) {
+            throw new IllegalStateException("La cola está vacía");
+        }
+
+        T dato = inicio.getDato();
+        inicio = inicio.getProximo();
+
+        if (inicio == null) { // si quedó vacía
+            fin = null;
+        }
+        return dato;
+    }
+
 
     public Nodo<T> getInicio() {
         return inicio;
