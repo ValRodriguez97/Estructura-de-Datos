@@ -1,4 +1,4 @@
-package ListasEnlazados.src.main.java.co.edu.uniquindio;
+package ListasEnlazados.src.main.java.co.edu.uniquindio.Colas;
 
 public class Nodo<T> {
     private T dato;
