@@ -1,4 +1,4 @@
-package co.edu.uniquindio;
+package ListasEnlazados.src.main.java.co.edu.uniquindio;
 
 public class Main {
     public static void main(String[] args) {

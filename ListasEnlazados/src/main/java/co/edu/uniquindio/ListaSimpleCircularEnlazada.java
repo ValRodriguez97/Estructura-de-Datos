@@ -1,4 +1,4 @@
-package co.edu.uniquindio;
+package ListasEnlazados.src.main.java.co.edu.uniquindio;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
