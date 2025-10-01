@@ -1,13 +1,11 @@
 package ListasEnlazados.src.main.java.co.edu.uniquindio.Colas;
 
-import java.util.ArrayList;
-
 public class Cola<T> {
     private Nodo<T> inicio;
     private Nodo<T> fin;
     private int tamaño;
 
-    public Cola(int tamaño) {
+    public Cola() {
         this.tamaño = tamaño;
     }
 
