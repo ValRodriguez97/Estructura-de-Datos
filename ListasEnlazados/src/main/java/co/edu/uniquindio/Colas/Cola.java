@@ -6,9 +6,26 @@ public class Cola<T> {
     private Nodo<T> inicio;
     private Nodo<T> fin;
     private int tamaño;
+    private int contador;
 
     public Cola(int tamaño) {
         this.tamaño = tamaño;
+        contador = 0;
+    }
+
+    public void encolar(T dato){
+        if(contador == tamaño){
+            throw new IllegalStateException("La cola esta llena");
+        }
+        Nodo<T> nuevo = new Nodo(dato);
+        if(inicio == null){
+            inicio = nuevo;
+            fin = nuevo;
+        }else{
+            fin.setProximo(nuevo);
+            fin = nuevo;
+        }
+        tamaño++;
     }
 
     public Nodo<T> getInicio() {
