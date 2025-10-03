@@ -20,4 +20,8 @@ public class Nodo<T> {
     public void setProximo(Nodo<T> proximo) {
         this.proximo = proximo;
     }
+
+    public void setDato(T tmp) {
+        dato = tmp;
+    }
 }

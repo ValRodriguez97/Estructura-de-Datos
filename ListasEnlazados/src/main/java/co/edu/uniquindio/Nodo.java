@@ -9,10 +9,16 @@ public class Nodo<T> {
         this.proximo = null;
     }
 
+    // Getter y Setter del dato
     public T getDato() {
         return dato;
     }
 
+    public void setDato(T dato) {
+        this.dato = dato;
+    }
+
+    // Getter y Setter del proximo
     public Nodo<T> getProximo() {
         return proximo;
     }
